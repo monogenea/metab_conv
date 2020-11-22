@@ -15,7 +15,7 @@ from pyms.TopHat import tophat
 
 #%% Download CDFs from Tohge's study
 
-ftp_url = 'ftp://ftp.ebi.ac.uk/pub/databases/metabolights/studies/public/MTBLS528/\*.cdf'
+ftp_url = r'ftp://ftp.ebi.ac.uk/pub/databases/metabolights/studies/public/MTBLS528/*.cdf'
 # Put wget command together, download to data/
 cmd = 'wget ' + ftp_url + ' -P data/'
 # Initiate download process
