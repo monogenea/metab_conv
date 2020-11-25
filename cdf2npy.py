@@ -1,10 +1,11 @@
 #%% Import vars and modules
 
+DIR = '/Users/franciscolima/Documents/Projects/metab_conv/'
 NUM_SCANS = 4200
 STRUCT = '0.5m'
 
 import os, re, glob, sys
-os.chdir('/Users/franciscolima/Documents/Projects/metab_conv/')
+os.chdir(DIR)
 import pandas as pd
 import numpy as np
 from tqdm import tqdm
