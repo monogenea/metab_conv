@@ -1,3 +1,18 @@
-# Explore 2D-Conv methods to learn representations of MS data
+# Explore 2D content of MS data
 
-Use *MTBLS528: The natural variance of the Arabidopsis floral secondary metabolites* from MetaboLights. Check progress with Leonardo.
+## CDF download and preprocessing
+
+The raw data download is accomplished from `wget` calls to the FTP associated with the MetaboLights study *MTBLS528: The natural variance of the Arabidopsis floral secondary metabolites*. The CDFs are subsequently processed using utilities from the Python `PyMassSpec` package:
+
+1. Selection of the first *N* scans (seemingly endpoints are not consistent)
+2. Savitsky-Golay filter (profile smoothing)
+3. Tophat noise filtering with a structure of length *t* minutes (baseline correction)
+4. Write processed data as NumPy arrays
+
+## Principal Component Analysis of stacked images
+
+TODO
+
+## Convolutional approaches
+
+TODO
