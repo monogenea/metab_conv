@@ -1,0 +1,13 @@
+Sample Name	Protocol REF	Parameter Value[array]	Parameter Value[manufacturer]	Assay Name	Raw Data File	Comment[Data Repository]	Comment[Data Record Accession]	Comment[Data Record URI]	Factor Value[seed collection location]	Factor Value[strain origin]
+Col-0	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_Col-0_ExpI	GSM2198231	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Columbia, USA	wild type
+Col-0	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_Col-0_ExpII	GSM2198232	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Columbia, USA	wild type
+C24	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_C24_ExpI	GSM2198233	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Lousa, Portugal	wild type
+C24	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_C24_ExpII	GSM2198234	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Lousa, Portugal	wild type
+Cvi-0	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_Cvi	GSM2198235	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Cape Verdi Islands, Senegal	wild type
+Da-0	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_Da	GSM2198236	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Darmstadt, Germany	wild type
+Laer-0	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_Laer	GSM2198237	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Landsberg, Germany	wild type
+RLD-1	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_RLD	GSM2198238	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Netherlands	wild type
+Rsch-0	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_Rsch	GSM2198239	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Rschew/Starize, Russia	wild type
+Sap-0	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_Sap	GSM2198240	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Slapy, Czech republic	wild type
+Stw-0	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_Stw	GSM2198241	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Stobowa/Orel, Russia	wild type
+Ws-0	Transcriptomic data	Arabidopsis ATH1 Genome Array	Affymetrix	Arabidopsis_flower_Ws	GSM2198242	Gene Expression Omnibus	GSE83291	http://identifiers.org/geo/GSE83291	Wassilewskija, Russia	wild type

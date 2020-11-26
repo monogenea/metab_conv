@@ -16,24 +16,10 @@ from pyms.IntensityMatrix import build_intensity_matrix_i
 from pyms.Noise.SavitzkyGolay import savitzky_golay_im
 from pyms.TopHat import tophat_im
 
-#%% Download CDFs from Tohge's study
-
-ftp_url = r'ftp://ftp.ebi.ac.uk/pub/databases/metabolights/studies/public/MTBLS528/*.cdf'
-# Put wget command together, download to data/
-cmd = 'wget ' + ftp_url + ' -P data/'
-# Initiate download process
-if not os.path.exists('data/'):
-    os.system(cmd) # NOT RUN
-
 #%% Apply noise and baseline correction, save as .npy
-# https://pymassspec.readthedocs.io/en/master/
 
 # List all CDFs
 fpaths = glob.glob('data/*.cdf') # N = 216
-
-# Create dir images/
-if not os.path.exists('arrays/'):
-    os.mkdir('arrays/')
 
 # http://thesmithfam.org/blog/2012/10/25/temporarily-suppress-console-output-in-python/
 @contextmanager

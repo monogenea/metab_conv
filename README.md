@@ -16,3 +16,13 @@ TODO
 ## Convolutional approaches
 
 TODO
+
+# Resources
+
+Link to the [Sci Data manuscript](https://www.nature.com/articles/sdata201851).
+Info about package [here](https://pymassspec.readthedocs.io/en/master/)
+
+# TODO
+
+* consider transcriptomics
+* find way to align chromatograms
