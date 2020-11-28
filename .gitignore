@@ -1,3 +1,4 @@
 data/*.cdf
 arrays/*.npy
 .vscode/
+__pycache__

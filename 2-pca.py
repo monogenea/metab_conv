@@ -7,6 +7,8 @@ SEED = 999
 
 import os, re, glob, sys, cv2
 os.chdir(DIR)
+import img_utils
+from tqdm import tqdm
 import pandas as pd
 import numpy as np
 #from tqdm import tqdm
@@ -15,18 +17,26 @@ from matplotlib import pyplot as plt
 from sklearn.preprocessing import StandardScaler
 from sklearn.decomposition import PCA
 
+#%% Load metadata
+
+metadata = pd.read_csv(DIR + 'metadata/a_metabolomics_Fernie.txt', sep='\t')
+
 #%% PCA of preprocess images
 
-def img_prep(fpath):
-    arr = np.load(fpath)
-    arr = cv2.blur(arr, ksize=(3, 3))
-    arr = cv2.resize(arr, dsize=(WIDTH, HEIGHT))
-    return arr
+arrays = glob.glob(r'arrays/*.npy')
+# Extract no. of scans per arr
+#sizes = [np.load(f).shape[0] for f in list_arr]
 
-list_arr = glob.glob(r'arrays/*.npy')
+# Choose a random array
+ref = arrays.pop()
+# Apply translation-based alignment over all images
+print('Running translation-based ECC image alignment...')
+aligned_arrays = [img_utils.img_registration(ref, arr) for arr in tqdm(arrays)]
+
+#%% PRINCIPAL COMPONENT ANALYSIS
 
 # Import and preprocess all samples (.npy arrays)
-all_dat = np.vstack([img_prep(f).flatten() for f in list_arr]) # (216, 131072)
+all_dat = np.vstack([img_prep(f, (WIDTH, HEIGHT)).flatten() for f in tqdm(list_arr])) # (216, 131072)
 
 # Mean-center pixels and perform PCA
 X = StandardScaler(with_std=False).fit_transform(all_dat)

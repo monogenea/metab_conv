@@ -25,4 +25,7 @@ Info about package [here](https://pymassspec.readthedocs.io/en/master/)
 # TODO
 
 * consider transcriptomics
+* Variance stabilization e.g. sqrt?
 * find way to align chromatograms
+* Apply ECC. Here is a nice [tutorial](https://www.learnopencv.com/image-alignment-ecc-in-opencv-c-python/) and the ECC [original paper](http://xanthippi.ceid.upatras.gr/people/evangelidis/george_files/PAMI_2008.pdf).
+* Affine trasnformation (in contrast to translational ECC) takes a lot longer
