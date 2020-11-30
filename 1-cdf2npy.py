@@ -1,9 +1,10 @@
 #%% Import vars and modules
 
 DIR = '/Users/franciscolima/Documents/Projects/metab_conv/'
-#NUM_SCANS = 4200
+# Pars
 STRUCT = '0.5m'
 
+# Imports
 import os, re, glob
 os.chdir(DIR)
 import img_utils
@@ -13,7 +14,7 @@ from tqdm import tqdm
 #%% Apply noise and baseline correction, save as .npy
 
 # List all CDFs
-fpaths = glob.glob('data/*.cdf') # N = 216
+fpaths = glob.glob('data/*.cdf') # n=216
 
 print('Processing and saving 2D arrays...')
 # Define regex to extract ID and iterate

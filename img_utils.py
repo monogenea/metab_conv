@@ -1,4 +1,4 @@
-#%% Utils to process images
+#%% Utils to process the data
 
 # Imports
 import os, sys, cv2
@@ -24,12 +24,10 @@ def suppress_stdout(): # suppress verbose
             sys.stdout = old_stdout
 
 # Define function
-def cdf_processing(fpath, structure): # nscans
+def cdf_processing(fpath, structure):
     with suppress_stdout():
         # Read CDF
         dat = ANDI_reader(fpath)
-        # Trim first NUM_SCAN timepoints
-        #dat.trim(1, nscans-1)
         # Construct int matrix ~ (n_scan, n_mz)
         im = build_intensity_matrix_i(dat)
         # Basic noise and baseline corrections
@@ -37,26 +35,28 @@ def cdf_processing(fpath, structure): # nscans
         norm = tophat_im(smooth, struct=structure)
     return norm
 
+#%% Image processing fun
+def img_load_prep(fpath, target_size):
+    arr = np.load(fpath).astype(np.float32)
+    arr = cv2.blur(arr, ksize=(3, 3))
+    arr = cv2.resize(arr, dsize=target_size, interpolation=cv2.INTER_AREA)
+    return arr
+
 #%% Image registation using Enhanced Correlation Coefficient Maximization (ECC)
-def img_registration(pref, parr, niter=5000, termination_eps=1e-10):
+def img_registration(ref, arrpath, niter, termination_eps):
     # Import the reference and target arrays
-    ref = np.load(pref).astype(np.float32)
-    arr = np.load(parr).astype(np.float32)
-    sz = ref.shape
-    # Define model
-    warp_mode = cv2.MOTION_TRANSLATION
+    #ref = img_load_prep(refpath, ts)
+    h, w = ref.shape
+    arr = img_load_prep(arrpath, (w, h))
+
+    # Define mode
+    warp_mode = cv2.MOTION_TRANSLATION # cv2.MOTION_AFFINE
     warp_matrix = np.eye(2, 3, dtype=np.float32)
     # Set criteria
     criteria = (cv2.TERM_CRITERIA_EPS | cv2.TERM_CRITERIA_COUNT, niter, termination_eps)
     # Run method, return aligned array w/ shape of ref
     _, warp_matrix = cv2.findTransformECC(ref, arr, warp_matrix, warp_mode, criteria)
-    aligned = cv2.warpAffine(arr, warp_matrix, (sz[1], sz[0]),
+    aligned = cv2.warpAffine(arr, warp_matrix, (w, h),
                     flags=cv2.INTER_LINEAR + cv2.WARP_INVERSE_MAP)
     return aligned
 
-#%% Image processing fun
-def img_prep(fpath, target_size):
-    arr = np.load(fpath)
-    arr = cv2.blur(arr, ksize=(3, 3))
-    arr = cv2.resize(arr, dsize=target_size)
-    return arr
